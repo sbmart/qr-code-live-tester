@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'
+import QRCode from 'qrcode.react'
 
+const salt = 'методы цифровой трансформации в действии!'
 function App() {
+  const [qrString, setQrString] = useState('')
+
+  function handleChange(event) {
+    setQrString(event.target.value)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input value={qrString} onChange={handleChange} />
+      <h2>Кодируем строку с солью: {qrString}</h2>
+      <h3> Соль: {salt}</h3>
+      <QRCode value={salt + qrString} />
     </div>
   );
 }

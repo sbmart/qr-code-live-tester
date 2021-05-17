@@ -1,8 +1,9 @@
+import './matchMedia';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders salt', () => {
   render(<App />);
-  // const linkElement = screen.getByText(/learn react/i);
-  // expect(linkElement).toBeInTheDocument();
+  const saltElement = screen.getByText(/Соль:/i);
+  expect(saltElement).toBeInTheDocument();
 });

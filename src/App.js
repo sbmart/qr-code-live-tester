@@ -11,8 +11,8 @@ const salt = '-*методы цифровой трансформации в де
 function App() {
   const [qrString, setQrString] = useState('')
 
-  function handleChange(event) {
-    setQrString(event.target.value)
+  function handleQRChange(e) {
+    setQrString(e.target.value)
   }
   return (
     <>
@@ -45,7 +45,7 @@ function App() {
           }}
         >
 
-          <Input value={qrString} onChange={handleChange} size="large" placeholder="Введите строку для кодирования" prefix={<QrcodeOutlined />} />
+          <Input value={qrString} onChange={handleQRChange} size="large" placeholder="Введите строку для кодирования" prefix={<QrcodeOutlined />} />
           <br></br>
           <h2>Кодируем строку с солью: {qrString}</h2>
           <h3>Захардкоденная соль: {salt}</h3>
